@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class StickmanCore : MonoBehaviour
@@ -11,18 +9,34 @@ public class StickmanCore : MonoBehaviour
 
     private float _mySpeed = 10f;
     private Animator _myAnimator;
+    
+    public static Status LifeStatus { get; protected set; }
+    
+    public delegate void OnSyringeInteraction(GameObject current);
+    
+    public static event OnSyringeInteraction onSyringeTreatmentEvent;
 
     public virtual void Awake()
     {
         _myAnimator = GetComponent<Animator>();
         _bodyRigidbodies = GetComponentsInChildren<Rigidbody>();
         _myController = GetComponent<CharacterController>();
+        
+        LifeStatus = Status.Live;
 
         SetRagdollActive(false);
         ChangeMass(20f);
     }
 
-    public void Move(Vector3 direction)
+    private void OnTriggerEnter(Collider other)
+    {
+        if ((other.CompareTag("RedInfected") || other.CompareTag("GreenInfected")) && LifeStatus == Status.SyringeTaken)
+        {
+            onSyringeTreatmentEvent?.Invoke(current: other.gameObject);
+        }
+    }
+
+    protected void Move(Vector3 direction)
     {
         _myController.Move(direction * Time.deltaTime * _mySpeed);
 
@@ -32,7 +46,7 @@ public class StickmanCore : MonoBehaviour
             transform.forward = Vector3.SmoothDamp(transform.forward, direction, ref _velocity, 1f * Time.deltaTime);
     }
 
-    public void SetRagdollActive(bool active)
+    protected void SetRagdollActive(bool active)
     {
         for (int i = 0; i < _bodyRigidbodies.Length; i++)
             _bodyRigidbodies[i].isKinematic = !active;
@@ -44,9 +58,15 @@ public class StickmanCore : MonoBehaviour
             _bodyRigidbodies[i].mass *= mult;
     }
 
-    public void MoveAnimationSpeed(float speed)
+    protected void MoveAnimationSpeed(float speed)
     {
         _myAnimator.SetFloat("Speed", speed);
+    }
+    
+    public enum Status
+    {
+        Live,
+        SyringeTaken
     }
 }
 
