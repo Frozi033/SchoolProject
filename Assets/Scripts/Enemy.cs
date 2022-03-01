@@ -38,10 +38,6 @@ public class Enemy : MonoBehaviour
             {
                 SetState(RunState);
             }
-            else if (CompareTag("Healthy"))
-            {
-                
-            }
         }
     }
 
@@ -60,6 +56,13 @@ public class Enemy : MonoBehaviour
 
         transform.position = Vector3.MoveTowards(transform.position, BedPosition, Time.deltaTime);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(BedPosition - transform.position), Time.deltaTime * _angleSpeed);
+        
+        var distance = (BedPosition - transform.position).magnitude;
+
+        if (distance < 1f)
+        {
+            SetState(BedState);
+        }
     }
 
     private void MoveAnimationSpeed(float speed)

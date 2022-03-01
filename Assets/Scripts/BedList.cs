@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ public class BedList : MonoBehaviour
 
     private int BedId;
     private Vector3 BedPosition;
+    [SerializeField] private float _timeoutOfSearch = 5;
     
     public delegate void Founded(Vector3 BedPosition);
     
@@ -32,5 +34,4 @@ public class BedList : MonoBehaviour
         BedPosition = EmptyBeds[BedId].gameObject.transform.position;
         FoundedBedEvent?.Invoke(BedPosition);
     }
-    
 }

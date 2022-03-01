@@ -48,6 +48,7 @@
      <Compile Include="Assets\Scripts\Syringe\Syringe.cs" />
      <Compile Include="Assets\Scripts\Player\StickmanCore.cs" />
      <Compile Include="Assets\Scripts\Player\Player.cs" />
+     <Compile Include="Assets\Scripts\RunState.cs" />
      <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\DynamicJoystick.cs" />
      <Compile Include="Assets\Joystick Pack\Scripts\Base\Joystick.cs" />
      <Compile Include="Assets\Scripts\Syringe\SyringeLogic.cs" />
@@ -55,7 +56,6 @@
      <Compile Include="Assets\Scripts\Enemy.cs" />
      <Compile Include="Assets\Scripts\Syringe\SyringeObject.cs" />
      <Compile Include="Assets\Scripts\State.cs" />
-     <Compile Include="Assets\Scripts\RunState.cs" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.2.11f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
      </Reference>
