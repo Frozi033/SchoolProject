@@ -11,10 +11,9 @@ public class StickmanCore : MonoBehaviour
     private Animator _myAnimator;
     
     public static Status LifeStatus { get; protected set; }
+
+    public static Action<GameObject> onSyringeTreatmentEvent;
     
-    public delegate void OnSyringeInteraction(GameObject current);
-    
-    public static event OnSyringeInteraction onSyringeTreatmentEvent;
 
     public virtual void Awake()
     {
@@ -30,9 +29,10 @@ public class StickmanCore : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if ((other.CompareTag("RedInfected") || other.CompareTag("GreenInfected")) && LifeStatus == Status.SyringeTaken)
+        if ((other.CompareTag("PurpleInfected") || other.CompareTag("GreenInfected")) && LifeStatus == Status.SyringeTaken)
         {
-            onSyringeTreatmentEvent?.Invoke(current: other.gameObject);
+            onSyringeTreatmentEvent.Invoke(other.gameObject);
+            //Debug.Log("Cearam");
         }
     }
 

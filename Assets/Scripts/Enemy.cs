@@ -1,15 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    public State BedState;
-    public State WaitForRunState;
-    public State RunState;
-    public Animator EnemyAnimator;
+    [SerializeField] private State BedState;
+    [SerializeField] private State RunState;
+    [SerializeField] private State RunExitState;
+    public Animator EnemyAnimator { get; private set; } 
 
     [Header("Actual State")]
     public State CurrentState;
@@ -18,8 +19,9 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        SetState(WaitForRunState);
+        SetState(RunState);
         EnemyAnimator = GetComponent<Animator>();
+        SyringeObject.PatientIsHealthy += RunToExit;
     }
 
     private void Update()
@@ -28,7 +30,7 @@ public class Enemy : MonoBehaviour
         {
             CurrentState.Do();
         }
-        else
+        /*else
         {
             if (BedList.EmptyBeds.Count <= 0)
             {
@@ -38,7 +40,7 @@ public class Enemy : MonoBehaviour
             {
                 SetState(RunState);
             }
-        }
+        }*/
     }
 
     public void SetState(State state)
@@ -48,25 +50,32 @@ public class Enemy : MonoBehaviour
         CurrentState.Init();
     }
     
-    public void MoveTo(Vector3 BedPosition)
+    public void MoveTo(Vector3 TargetPosition)
     {
-        BedPosition.y = transform.position.y;
+        TargetPosition.y = transform.position.y;
 
-        MoveAnimationSpeed(BedPosition.magnitude);
+        MoveAnimationSpeed(TargetPosition.magnitude);
 
-        transform.position = Vector3.MoveTowards(transform.position, BedPosition, Time.deltaTime);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(BedPosition - transform.position), Time.deltaTime * _angleSpeed);
+        transform.position = Vector3.MoveTowards(transform.position, TargetPosition, Time.deltaTime);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(TargetPosition - transform.position), Time.deltaTime * _angleSpeed);
         
-        var distance = (BedPosition - transform.position).magnitude;
+        var distance = (TargetPosition - transform.position).magnitude;
 
         if (distance < 1f)
         {
-            SetState(BedState);
+            SetState(RunExitState);
         }
+        // тут будет метод перемещения на кровать, а в состоянии в ините мы будем вызывать этот метод
     }
+
+    private void RunToExit()
+    {
+        SetState(RunState);
+    }
+    
 
     private void MoveAnimationSpeed(float speed)
     {
-        EnemyAnimator.SetFloat("Speed", speed);
+        //EnemyAnimator.SetFloat("Speed", speed);
     }
 }

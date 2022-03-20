@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [CreateAssetMenu]
@@ -5,27 +6,26 @@ public class SyringeObject : Syringe
 {
     [SerializeField] private string _infectedName = "Name";
     [SerializeField] private GameObject _syringe;
-    
-    public delegate void StateNotify();
 
-    public static event StateNotify SetPatienState;
+    public static Action PatientIsHealthy;
 
-    protected virtual void Init()
+    public override void Init()
     {
-         SyringeLogic.onSyringeTakeEvent += SyringeTake;
-         StickmanCore.onSyringeTreatmentEvent += Treatment;
+        StickmanCore.onSyringeTreatmentEvent += Treatment;
+        SyringeTake();
     }
 
-    protected void Treatment(GameObject current)
+    private void Treatment(GameObject current)
     {
         if (current.CompareTag(_infectedName))
         {
-            SetPatienState?.Invoke();
+            PatientIsHealthy.Invoke();
             _syringe.SetActive(false);
+            Debug.Log("soper");
         }
     }
 
-    protected void SyringeTake()
+    private void SyringeTake()
     {
         _syringe.SetActive(true);
     }

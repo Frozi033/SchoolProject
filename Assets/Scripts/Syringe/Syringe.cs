@@ -4,5 +4,5 @@ using UnityEngine;
 
 public abstract class Syringe : ScriptableObject
 {
-    protected virtual void Init(){ }
+    public virtual void Init(){ }
 }
