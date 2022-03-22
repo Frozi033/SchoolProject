@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private State RunState;
     [SerializeField] private State RunExitState;
     public Animator EnemyAnimator { get; private set; } 
+    
 
     [Header("Actual State")]
     public State CurrentState;
@@ -63,14 +64,13 @@ public class Enemy : MonoBehaviour
 
         if (distance < 1f)
         {
-            SetState(RunExitState);
+            SetState(BedState);
         }
-        // тут будет метод перемещения на кровать, а в состоянии в ините мы будем вызывать этот метод
     }
 
     private void RunToExit()
     {
-        SetState(RunState);
+        SetState(RunExitState);
     }
     
 

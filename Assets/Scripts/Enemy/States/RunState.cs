@@ -7,24 +7,16 @@ using UnityEngine;
 public class RunState : State
 {
     private Vector3 _targetPos;
+    
 
-    [SerializeField] private Vector3 _exitPos;
-
-    public static bool GoToBed;
+    public static bool GoToBed; // тут есть проблема, в общем, у нас все завязанно на статических событиях, а они отправляют уведомления всем экземплярам, поэтому, если мы лечим одного чупса, то лечатся сразу все, это надо пофиксить
     
     public static Action FoundBedForMeEvent;
     
     public override void Init()
-    {
-        if (!GoToBed)
-        {
-            BedList.FoundedBedEvent += PositionAssigning;
-            FoundBedForMeEvent.Invoke();
-        }
-        else
-        {
-            _targetPos = _exitPos;
-        }
+    { 
+        BedList.FoundedBedEvent += PositionAssigning;
+        FoundBedForMeEvent.Invoke();
     }
 
     private void OnDisable()
