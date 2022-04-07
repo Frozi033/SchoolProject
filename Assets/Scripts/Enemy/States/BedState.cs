@@ -5,9 +5,9 @@ using UnityEngine;
 [CreateAssetMenu]
 public class BedState : State
 {
-    public override void Init()
+    private int _currentId;
+    public override void Init(int id)
     {
-        Enemy.EnemyAnimator.SetBool("Sleep", true);
     }
 
     public override void Do()

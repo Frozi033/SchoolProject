@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90f0c3404a110814b902fd61f816152c, type: 3}
   m_Name: Green
   m_EditorClassIdentifier: 
-  _infectedName: GreenInfected
+  _infectedTag: GreenInfected
   _syringe: {fileID: 8806344615394461696, guid: 310b1f10c287b4579880de9e24c3c1a8, type: 3}

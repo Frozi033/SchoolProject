@@ -26,15 +26,7 @@ public class StickmanCore : MonoBehaviour
         SetRagdollActive(false);
         ChangeMass(20f);
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if ((other.CompareTag("PurpleInfected") || other.CompareTag("GreenInfected")) && LifeStatus == Status.SyringeTaken)
-        {
-            onSyringeTreatmentEvent.Invoke(other.gameObject);
-            //Debug.Log("Cearam");
-        }
-    }
+    
 
     protected void Move(Vector3 direction)
     {

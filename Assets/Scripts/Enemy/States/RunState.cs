@@ -7,16 +7,19 @@ using UnityEngine;
 public class RunState : State
 {
     private Vector3 _targetPos;
-    
+
+    private int _currentId;
 
     public static bool GoToBed; // тут есть проблема, в общем, у нас все завязанно на статических событиях, а они отправляют уведомления всем экземплярам, поэтому, если мы лечим одного чупса, то лечатся сразу все, это надо пофиксить
     
-    public static Action FoundBedForMeEvent;
+    public static Action<int> FoundBedForMeEvent;
     
-    public override void Init()
+    public override void Init(int id)
     { 
         BedList.FoundedBedEvent += PositionAssigning;
-        FoundBedForMeEvent.Invoke();
+        this._currentId = id;
+        Debug.Log("Compas");
+        FoundBedForMeEvent.Invoke(_currentId);
     }
 
     private void OnDisable()
@@ -33,16 +36,17 @@ public class RunState : State
         Enemy.MoveTo(_targetPos);
     }
 
-    private void PositionAssigning(Vector3 BedPosition)
+    private void PositionAssigning(Vector3 BedPosition, int id)
     {
-        Debug.Log(BedPosition);
-        if (BedPosition != _targetPos)
+        Debug.Log(id + " ID in run");
+        if (BedPosition != _targetPos && _currentId == id)
         {
             _targetPos = BedPosition;
         }
         else
         {
-            FoundBedForMeEvent?.Invoke();
+            FoundBedForMeEvent?.Invoke(_currentId);
+            Debug.Log("sSomos");
         }
     }
 }

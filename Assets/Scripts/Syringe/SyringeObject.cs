@@ -4,24 +4,30 @@ using UnityEngine;
 [CreateAssetMenu]
 public class SyringeObject : Syringe
 {
-    [SerializeField] private string _infectedName = "Name";
+    [SerializeField] private string _infectedTag = "Tag";
     [SerializeField] private GameObject _syringe;
 
-    public static Action PatientIsHealthy;
+    public static Action<int> PatientIsHealthy;
 
     public override void Init()
     {
-        StickmanCore.onSyringeTreatmentEvent += Treatment;
+        Enemy.TreatmentEvent += Treatment;
         SyringeTake();
+        Debug.Log("Sobaka");
     }
 
-    private void Treatment(GameObject current)
+    private void Treatment(int id, string tag)
     {
-        if (current.CompareTag(_infectedName))
+        if (tag == _infectedTag)
         {
-            PatientIsHealthy.Invoke();
+            //current.
+            PatientIsHealthy.Invoke(id);
             _syringe.SetActive(false);
             Debug.Log("soper");
+        }
+        else
+        {
+            Debug.Log(tag);
         }
     }
 

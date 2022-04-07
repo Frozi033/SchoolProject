@@ -7,6 +7,7 @@ TagManager:
   - Bed
   - PurpleInfected
   - GreenInfected
+  - Infected
   layers:
   - Default
   - TransparentFX
