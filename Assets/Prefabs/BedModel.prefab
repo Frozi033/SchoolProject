@@ -1,0 +1,132 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &875635443897766479
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 535138221679757557}
+  - component: {fileID: 3513629001031337808}
+  - component: {fileID: 1668053406166234010}
+  - component: {fileID: 875635443897766474}
+  - component: {fileID: 875635443897766473}
+  - component: {fileID: 875635443897766472}
+  m_Layer: 0
+  m_Name: BedModel
+  m_TagString: Bed
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &535138221679757557
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875635443897766479}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 3.0973425, y: 2.67, z: 4.4922895}
+  m_LocalScale: {x: 57.923916, y: 142.53325, z: 6.6021047}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!33 &3513629001031337808
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875635443897766479}
+  m_Mesh: {fileID: 4493585093827132993, guid: f9212db9761e25541abfcc51213a6d39, type: 3}
+--- !u!23 &1668053406166234010
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875635443897766479}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: -6478536213147159724, guid: 6f48f9ced9e7a064aaa1ef54818a90ca, type: 3}
+  - {fileID: -8274133419916619345, guid: 6f48f9ced9e7a064aaa1ef54818a90ca, type: 3}
+  - {fileID: -3846018093981099296, guid: 6f48f9ced9e7a064aaa1ef54818a90ca, type: 3}
+  - {fileID: 4874126678125670354, guid: 6f48f9ced9e7a064aaa1ef54818a90ca, type: 3}
+  - {fileID: -6922793697723135513, guid: 6f48f9ced9e7a064aaa1ef54818a90ca, type: 3}
+  - {fileID: -6629797300637803691, guid: 6f48f9ced9e7a064aaa1ef54818a90ca, type: 3}
+  - {fileID: -3522955778539423533, guid: 6f48f9ced9e7a064aaa1ef54818a90ca, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &875635443897766474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875635443897766479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 464ba286de4c147cfa79413cffb0af62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _heightOnBed: 0
+--- !u!65 &875635443897766473
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875635443897766479}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.022094933, y: 0.0071689943, z: 0.6009525}
+  m_Center: {x: 0.0000011329467, y: -0.0002116295, z: 0.00007478901}
+--- !u!65 &875635443897766472
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875635443897766479}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.029617798, y: 0.007636838, z: 0.6342121}
+  m_Center: {x: 0.00075815746, y: -0.00011717756, z: 0.0024984078}

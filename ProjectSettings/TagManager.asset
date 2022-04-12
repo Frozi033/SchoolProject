@@ -8,6 +8,9 @@ TagManager:
   - PurpleInfected
   - GreenInfected
   - Infected
+  - GreenSyringe
+  - SpawnPoint
+  - PurpleSyringe
   layers:
   - Default
   - TransparentFX

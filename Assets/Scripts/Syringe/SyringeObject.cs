@@ -9,9 +9,9 @@ public class SyringeObject : Syringe
 
     public static Action<int> PatientIsHealthy;
 
-    public override void Init()
+    public void Init()
     {
-        Enemy.TreatmentEvent += Treatment;
+        //Enemy.TreatmentEvent += Treatment;
         SyringeTake();
         Debug.Log("Sobaka");
     }

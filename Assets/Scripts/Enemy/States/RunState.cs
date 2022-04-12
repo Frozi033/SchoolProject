@@ -1,45 +1,37 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu]
 public class RunState : State
 {
+    [SerializeField] private State WaitForRunState;
+
+    private Vector3 _nullPos;
     private Vector3 _targetPos;
 
-    private int _currentId;
-
-    public static bool GoToBed; // тут есть проблема, в общем, у нас все завязанно на статических событиях, а они отправляют уведомления всем экземплярам, поэтому, если мы лечим одного чупса, то лечатся сразу все, это надо пофиксить
-    
-    public static Action<int> FoundBedForMeEvent;
-    
-    public override void Init(int id)
-    { 
-        BedList.FoundedBedEvent += PositionAssigning;
-        this._currentId = id;
-        Debug.Log("Compas");
-        FoundBedForMeEvent.Invoke(_currentId);
-    }
-
-    private void OnDisable()
+    public override void Init()
     {
-        BedList.FoundedBedEvent -= PositionAssigning;
+        _targetPos = Infected.FoundBedInfected();
+        if (_targetPos == _nullPos)
+        {
+            Infected.SetState(WaitForRunState);
+        }
+        else
+        {
+            Infected.MoveTo(_targetPos);
+        }
     }
-
     public override void Do()
     {
         if (IsFinished)
         {
             return;
         }
-        Enemy.MoveTo(_targetPos);
+        Infected.IsComeToBed(_targetPos);
     }
 
-    private void PositionAssigning(Vector3 BedPosition, int id)
+    /*private void PositionAssigning(Vector3 BedPosition, int id)
     {
-        Debug.Log(id + " ID in run");
-        if (BedPosition != _targetPos && _currentId == id)
+        if (BedPosition != _targetPos)
         {
             _targetPos = BedPosition;
         }
@@ -49,4 +41,5 @@ public class RunState : State
             Debug.Log("sSomos");
         }
     }
+   private void GettingPosition*/
 }

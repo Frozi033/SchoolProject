@@ -56,10 +56,11 @@
      <Compile Include="Assets\Scripts\Pool.cs" />
      <Compile Include="Assets\Scripts\PoolObject.cs" />
      <Compile Include="Assets\Scripts\Enemy\States\RunToExit.cs" />
+     <Compile Include="Assets\Scriptor.cs" />
      <Compile Include="Assets\Scripts\SpawnPoint.cs" />
      <Compile Include="Assets\Scripts\Syringe\SyringeTable.cs" />
      <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\FloatingJoystick.cs" />
-     <Compile Include="Assets\Scripts\Enemy.cs" />
+     <Compile Include="Assets\Scripts\Infected.cs" />
      <Compile Include="Assets\Scripts\Syringe\SyringeObject.cs" />
      <Compile Include="Assets\Scripts\Enemy\States\State.cs" />
      <Reference Include="UnityEngine">

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: RunToExit
   m_EditorClassIdentifier: 
   Enemy: {fileID: 0}
-  _exitPos: {x: 9.077342, y: 2.659807, z: 0}
+  _exitPos: {x: 9.052, y: 1.882807, z: -6.821}

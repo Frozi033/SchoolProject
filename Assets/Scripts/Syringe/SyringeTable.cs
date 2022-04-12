@@ -1,18 +1,18 @@
 using System;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class SyringeTable : StickmanCore
+public class SyringeTable : MonoBehaviour
 {
-    [SerializeField] private Syringe _currentSyringe;
+    [SerializeField] private String tag;
+    [SerializeField] private GameObject _currentSyringe;
 
+    public static Action<GameObject> SyringeTakenEvent;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && LifeStatus == Status.Live)
+        if (other.CompareTag("Player"))
         {
-            _currentSyringe.Init();
-            LifeStatus = Status.SyringeTaken;
-            Debug.Log(LifeStatus);
+            other.gameObject.tag = tag;
+            SyringeTakenEvent?.Invoke(_currentSyringe);
         }
     }
 }

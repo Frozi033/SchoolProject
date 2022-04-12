@@ -1,18 +1,26 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Bed : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private float _heightOnBed;
+
+    private Vector3 _bedPos;
+    private void Start()
     {
-        
+        _bedPos = gameObject.transform.position;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.gameObject.GetComponent<Infected>().CurrentBed == _bedPos)
+        {
+            var position = _bedPos;
+            position.y = _heightOnBed;
+            other.gameObject.transform.position = position;
+            other.gameObject.transform.rotation = Quaternion.Inverse(gameObject.transform.rotation);
+        }
     }
 }

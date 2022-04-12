@@ -1,30 +1,38 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class SpawnPoint : MonoBehaviour
+[RequireComponent(typeof(Pool))]
+public  class SpawnPoint : MonoBehaviour
 {
     [SerializeField] private float _time;
-    public static int idInfected { get; private set; }
-
     
-    public static Pool _pool { get; private set; }
-    private Transform _spawnPoint;
+    private static Pool _pool;
+    private Vector3 _spawnPoint;
     private void Start()
     {
-        _spawnPoint = GetComponent<Transform>();
         _pool = GetComponent<Pool>();
-        idInfected = 0;
-        _pool.GetFreeElement(_spawnPoint.position);
+        
+        _spawnPoint = gameObject.transform.position;
         StartCoroutine(SpawnDelay());
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            _pool.GetFreeElement(_spawnPoint);
+        }
     }
 
     private IEnumerator SpawnDelay()
     {
         yield return new WaitForSeconds(_time);
-        idInfected++;
-        _pool.GetFreeElement(_spawnPoint.position);
+        
+        _pool.GetFreeElement(_spawnPoint);
+        
         StartCoroutine(SpawnDelay());
     }
 }

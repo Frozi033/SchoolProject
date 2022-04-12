@@ -6,11 +6,9 @@ using UnityEngine.Assertions.Must;
 [CreateAssetMenu]
 public class WaitForRunState : State
 {
-    public State RunState;
-    
-    public override void Init(int id)
+    public override void Init()
     {
-        //Enemy.EnemyAnimator.SetBool("Sleep", false);
+        Infected.StartTimer();
     }
     public override void Do()
     {
@@ -18,11 +16,6 @@ public class WaitForRunState : State
         {
             return;
         }
-
-       /* if (BedList.EmptyBeds.Count > 0)
-        {
-            IsFinished = true;
-        }*/
     }
     
 }

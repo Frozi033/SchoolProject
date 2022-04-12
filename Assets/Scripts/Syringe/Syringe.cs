@@ -1,8 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Syringe : ScriptableObject
+public abstract class Syringe : MonoBehaviour
 {
-    public virtual void Init(){ }
+    protected virtual void Healing(string infectedTag, string currentTag)
+    {
+        if (infectedTag == currentTag)
+        {
+            
+        }
+    }
 }

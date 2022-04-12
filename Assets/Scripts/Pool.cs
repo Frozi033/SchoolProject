@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 
 public class Pool : MonoBehaviour // реализация пула
 {
-    [SerializeField] private List<PoolObject> _infectedTypes;
+    [SerializeField] private PoolObject _infected;
     [SerializeField] private Transform _container;
     [SerializeField] private int _minCapacity;
     [SerializeField] private int _maxCapacity;
@@ -42,25 +42,11 @@ public class Pool : MonoBehaviour // реализация пула
 
     private PoolObject CreatElement(bool isActiveByDefault = false)
     {
-        _index = Random.Range(0, _infectedTypes.Count);
-        var createdObject = Instantiate(_infectedTypes[_index], _container);
+        var createdObject = Instantiate(_infected, _container);
         createdObject.gameObject.SetActive(isActiveByDefault);
 
         _pool.Add(createdObject);
         return createdObject;
-    }
-
-    public int GetMyId(PoolObject me)
-    {
-        for (int i = 0; i < _pool.Count; i++) // не получается так как в пуле все клоны и по факту они никак не отличаются
-        {
-            if (me == _pool[i])
-            {
-                _id = i;
-                break;
-            }
-        }
-        return _id;
     }
 
     public bool TryGetElement(out PoolObject element)

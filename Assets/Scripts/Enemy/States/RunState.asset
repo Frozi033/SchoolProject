@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: RunState
   m_EditorClassIdentifier: 
   Enemy: {fileID: 0}
-  SleepState: {fileID: 11400000, guid: 38db6b4a29aa248f3bd879cb6ac6cab6, type: 2}
+  WaitForRunState: {fileID: 11400000, guid: 120aacfcffb894043850b9050066154f, type: 2}

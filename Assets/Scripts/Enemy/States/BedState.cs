@@ -6,8 +6,9 @@ using UnityEngine;
 public class BedState : State
 {
     private int _currentId;
-    public override void Init(int id)
+    public override void Init()
     {
+        
     }
 
     public override void Do()
