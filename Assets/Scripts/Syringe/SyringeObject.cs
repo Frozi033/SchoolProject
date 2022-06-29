@@ -11,19 +11,15 @@ public class SyringeObject : Syringe
 
     public void Init()
     {
-        //Enemy.TreatmentEvent += Treatment;
         SyringeTake();
-        Debug.Log("Sobaka");
     }
 
     private void Treatment(int id, string tag)
     {
         if (tag == _infectedTag)
         {
-            //current.
             PatientIsHealthy.Invoke(id);
             _syringe.SetActive(false);
-            Debug.Log("soper");
         }
         else
         {

@@ -220,7 +220,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 38fbffff
+      m_ExpandedIDs: 38fbffff1e550000ce550000185600004656000092570000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -309,9 +309,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -8.195706, y: 5.7087364, z: -4.1736007}
+    m_Target: {x: 16.676899, y: -22.95455, z: 14.927853}
     speed: 2
-    m_Value: {x: -8.195706, y: 5.7087364, z: -4.1736007}
+    m_Value: {x: 16.676899, y: -22.95455, z: 14.927853}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -358,13 +358,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.30602005, y: 0.5505047, z: -0.22702348, w: 0.7428681}
+    m_Target: {x: 0.32506248, y: 0.4009503, z: -0.1550331, w: 0.842411}
     speed: 2
-    m_Value: {x: 0.30602002, y: 0.5505047, z: -0.22702348, w: 0.7428681}
+    m_Value: {x: 0.3248104, y: 0.4021897, z: -0.15551132, w: 0.84175885}
   m_Size:
-    m_Target: 3.2146769
+    m_Target: 20.198748
     speed: 2
-    m_Value: 3.2146769
+    m_Value: 20.198748
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -574,22 +574,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs
+    - Assets/Scripts/Syringe
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefabs
+  - Assets/Scripts/Syringe
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\Projects\Hyper Hospital
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: f6590000
-    m_LastClickedID: 23030
-    m_ExpandedIDs: 00000000dc580000de580000e0580000e2580000
+    m_SelectedIDs: e2580000
+    m_LastClickedID: 22754
+    m_ExpandedIDs: 0000000000590000025900000459000006590000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -617,7 +617,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000dc580000de580000e0580000e2580000
+    m_ExpandedIDs: 0000000000590000025900000459000006590000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -642,10 +642,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: b2550000
-    m_LastClickedInstanceID: 21938
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c6230000fc6900001a6c0000d06c000092c700002ec90000d4530000ba6d000030890000b05d0000
+    m_ExpandedInstanceIDs: c6230000fc6900001a6c0000d06c000092c700002ec90000d4530000ba6d000030890000b05d0000045900000c590000145a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
